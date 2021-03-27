@@ -7,9 +7,18 @@
             <p>
                 {{ target_user.date_joined }} <!-- target_user가 언제 가입을 했는지 -->
             </p>
+
+            {% if target_user.profile %}
             <h2 style="font-family: 'NanumSquareB'">
-                {{ target_user.username }} <!-- target_user의 유저 이름 -->
+                {{ target_user.profile.nickname }} <!-- target_user의 유저 이름 -->
             </h2>
+            {% else %}
+            <a href="{% url 'profileapp:create' %}">
+                <h2 style="font-family: 'NanumSquareB'">
+                    Create Profile
+                </h2>
+            </a>
+            {% endif %}
 
             {% if target_user == user %} <!-- target_user:(현재 로그인한 유저) 객체와 user:(서버가 db에서 끌어온user정보)와같다면 -->
             <a href="{% url 'accountapp:update' pk=user.pk %}">
