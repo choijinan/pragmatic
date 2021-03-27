@@ -5,37 +5,46 @@
     <div>
         <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
 
-            <img src="{{ target_user.profile.image.url }}" alt="" style="height: 10rem; width: 10rem; border-radius: 20rem; margin-bottom: 2rem;">
             {% if target_user.profile %}
-            <h2 style="font-family: 'NanumSquareB'">
-                {{ target_user.profile.nickname }}
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                    변경하기
-                </a>
-            </h2>
-            {% else %}
-            <a href="{% url 'profileapp:create' %}">
+                <img src="{{ target_user.profile.image.url }}" alt=""
+                     style="height: 10rem; width: 10rem; border-radius: 20rem; margin-bottom: 2rem;">
+
                 <h2 style="font-family: 'NanumSquareB'">
-                    Create Profile
+                    {{ target_user.profile.nickname }}
+                    {% if target_user == user %}
+                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                        변경하기
+                    </a>
+                    {% endif %}
                 </h2>
-            </a>
+                <h5 style="margin-bottom: 3rem;">
+                    {{ target_user.profile.message }}
+                </h5>
+            {% else %}
+                {% if target_user == user %}
+                    <a href="{% url 'profileapp:create' %}">
+                        <h2 style="font-family: 'NanumSquareB'">
+                            프로필 생성
+                        </h2>
+                    </a>
+                {% else %}
+                    <h2>
+                        닉네임 미설정입니다.
+                    </h2>
+                {% endif %}
             {% endif %}
 
-            <h5 style="margin-bottom: 3rem;">
-                {{ target_user.profile.message }}
-            </h5>
-
             {% if target_user == user %} <!-- target_user:(현재 로그인한 유저) 객체와 user:(서버가 db에서 끌어온user정보)와같다면 -->
-            <a href="{% url 'accountapp:update' pk=user.pk %}">
-                <p>
-                    회원정보 변경
-                </p>
-            </a>
-            <a href="{% url 'accountapp:delete' pk=user.pk %}">
-                <p>
-                    회원탈퇴
-                </p>
-            </a>
+                <a href="{% url 'accountapp:update' pk=user.pk %}">
+                    <p>
+                        회원정보 변경
+                    </p>
+                </a>
+                <a href="{% url 'accountapp:delete' pk=user.pk %}">
+                    <p>
+                        회원탈퇴
+                    </p>
+                </a>
             {% endif %}
 
         </div>
