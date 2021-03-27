@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accountapp',
     'bootstrap4', # 라이브러리가 설치되어서 적어줌!!
+    'profileapp',
 ]
 
 MIDDLEWARE = [

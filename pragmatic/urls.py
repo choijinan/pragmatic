@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accountapp.urls')), # account/ 한다음 accountapp 안에있는 url이 추가로 붙는다 즉, :8080/account/hello_world 이런식이됨!!
+    path('profiles/', include('profileapp.urls')),
 ]
