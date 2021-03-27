@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'accountapp',
     'bootstrap4', # 라이브러리가 설치되어서 적어줌!!
     'profileapp',
+    'articleapp',
 ]
 
 MIDDLEWARE = [
