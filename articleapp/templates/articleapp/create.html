@@ -7,10 +7,10 @@
         <div class="mb-4">
             <h4>게시글 작성</h4>
         </div>
-        <form action="{% url 'articleapp:create' %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'articleapp:create' %}" method="post" enctype="multipart/form-data" style="text-align: left;">
             {% csrf_token %}
             {% bootstrap_form form %}
-            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3" value="작성하기">
+            <input type="submit" class="btn btn-dark rounded-pill col-12 mt-3" value="작성하기">
         </form>
     </div>
 
