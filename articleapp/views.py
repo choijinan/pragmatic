@@ -4,7 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 
 from articleapp.decorators import article_ownership_required
 from articleapp.forms import ArticleCreationForm
@@ -57,3 +57,8 @@ class ArticleDeleteView(DeleteView): # 게시글 삭제
     success_url = reverse_lazy('articleapp:list')
     template_name = 'articleapp/delete.html'
 
+class ArticleListView(ListView): # 이 코드로 이제 페이지설정 보여질 내용과 페이지 아래 넘기기 설정!! 1페이지 2페이지 이런
+    model = Article
+    context_object_name = 'article_list'
+    template_name = 'articleapp/list.html'
+    paginate_by = 5
