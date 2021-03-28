@@ -24,5 +24,6 @@ urlpatterns = [
     path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
     path('comments/', include('commentapp.urls')),
+    path('projects/', include('projectapp.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # 이 설정을 해줘야 프로필 이미지가 나옴 미디어와 연결시켜주는 역할의 코드이다. media에 연결됨

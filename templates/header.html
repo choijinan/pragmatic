@@ -2,24 +2,25 @@
         <div>
             <h1 class="pragmatic_logo">Pragmatic</h1>
         </div>
-        <div>
-            <a href="{% url 'articleapp:list' %}">
+        <div class="pragmatic_header_navbar">
+            <a href="{% url 'articleapp:list' %}" class="prgmatic_header_nav">
                 <span>게시글</span>
             </a>
-            <span>nav2</span>
-            <span>nav3</span>
+            <a href="{% url 'projectapp:list' %}" class="prgmatic_header_nav">
+                <span>프로젝트</span>
+            </a>
             {% if not user.is_authenticated %} <!-- 만약 user가 로그인이 되어있지 않다면 -->
-            <a href="{% url 'accountapp:login' %}?next={{ request.path }}">  <!-- 로그인을 보여준다 -->
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="prgmatic_header_nav">  <!-- 로그인을 보여준다 -->
                 <span>로그인</span>
             </a>
-            <a href="{% url 'accountapp:create' %}">  <!-- 회원가입 -->
+            <a href="{% url 'accountapp:create' %}" class="prgmatic_header_nav">  <!-- 회원가입 -->
                 <span>회원가입</span>
             </a>
             {% else %} <!-- user가 로그인 되어있다면 -->
-            <a href="{% url 'accountapp:detail' pk=user.pk %}"> <!-- 유저 정보의 pk값을 가지고와서 pk에 넣어주면 mypage 개인정보 페이지로 갈수 있도록 한다!!-->
+            <a href="{% url 'accountapp:detail' pk=user.pk %}" class="prgmatic_header_nav"> <!-- 유저 정보의 pk값을 가지고와서 pk에 넣어주면 mypage 개인정보 페이지로 갈수 있도록 한다!!-->
                 <span>내정보</span>
             </a>
-            <a href="{% url 'accountapp:logout' %}?next={{ request.path }}"> <!-- ?next={{ request.path }} 를 통해 login or logout 클릭 후 연결될 링크를 이어준다.-->
+            <a href="{% url 'accountapp:logout' %}?next={{ request.path }}" class="prgmatic_header_nav"> <!-- ?next={{ request.path }} 를 통해 login or logout 클릭 후 연결될 링크를 이어준다.-->
                 <span>로그아웃</span> <!-- 로그아웃을 보여준다 -->                <!-- 즉,login 클릭 후에 로그인 창에서 로그인까지하고나면 보여질 페이지의 링크 설정이다!!-->
             </a>
             {% endif %}
