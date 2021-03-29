@@ -13,30 +13,12 @@ from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
-from accountapp.models import HelloWorld
 from articleapp.models import Article
 
 has_ownership = [account_ownership_required, login_required]    # 이렇게 데코레이터 명들을 새로운 변수에 배열(리스트)형태로 선언해서 넣어주면
                                                                 # 4줄짜리 데코레이터를 2줄로 줄일 수 있다.
                                                                 # has_ownership을 @method_decorator()안에서 실행시킬 데코레이터 명으로 넣어주면
                                                                 # 알아서 배열안에 들어있는 데코레이터를 다 실행시킨다!! 꿀같은 정보!!
-
-@login_required
-def hello_world(request):
-
-        if request.method == "POST":
-
-            temp = request.POST.get('hello_world_input')
-
-            new_hello_world = HelloWorld()
-            new_hello_world.text = temp
-            new_hello_world.save()
-
-            return HttpResponseRedirect(reverse('accountapp:hello_world'))
-        else:
-            hello_world_list = HelloWorld.objects.all()
-            return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
-
 
 
 class AccountCreateView(CreateView): # 회원가입

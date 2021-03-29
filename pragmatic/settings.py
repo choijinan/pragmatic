@@ -146,7 +146,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')       # 이렇게 redirect 링크를 써줘야 오류가 안생김!!  =>  html에서 next 설정 + 여기서 redirect설정까지 해줘야함!!
+LOGIN_REDIRECT_URL = reverse_lazy('home')       # 이렇게 redirect 링크를 써줘야 오류가 안생김!!  =>  html에서 next 설정 + 여기서 redirect설정까지 해줘야함!!
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')            # 그냥 링크창에 /login 치고 들어갔을 때 뜨는 오류를 없애줌!!
 
 MEDIA_URL = '/media/'
