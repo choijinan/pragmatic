@@ -24,7 +24,7 @@ has_ownership = [account_ownership_required, login_required]    # 이렇게 데�
 class AccountCreateView(CreateView): # 회원가입
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:hello_world') # 계정생성 성공시 이동할 url
+    success_url = reverse_lazy('accountapp:login') # 계정생성 성공시 이동할 url
     template_name = 'accountapp/create.html' # 회원가입을 할 때 볼 html을 지정해주기
 
 
@@ -46,7 +46,7 @@ class AccountUpdateView(UpdateView): # 회원가입 CreateView랑 거의 동일�
     model = User
     context_object_name = 'target_user'
     form_class = AccountUpdateForm
-    success_url = reverse_lazy('accountapp:hello_world') # 정보 변경 성공시 이동할 url
+    success_url = reverse_lazy('accountapp:detail') # 정보 변경 성공시 이동할 url
     template_name = 'accountapp/update.html' # 회원정보 변경을 할 때 볼 html을 지정해주기
 
 
