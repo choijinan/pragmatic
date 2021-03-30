@@ -91,6 +91,9 @@ media/
 
 Dockerfile
 
+nginx.conf
+
+
 
 
 ### JetBrains Patch ###
