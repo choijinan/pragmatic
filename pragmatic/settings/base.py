@@ -111,7 +111,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # collectstatic 의 경로를 지정해준 코드이다.
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    os.path.join(BASE_DIR,'static')
 ]
 
 LOGIN_REDIRECT_URL = reverse_lazy('home')       # 이렇게 redirect 링크를 써줘야 오류가 안생김!!  =>  html에서 next 설정 + 여기서 redirect설정까지 해줘야함!!
