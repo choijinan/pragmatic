@@ -83,7 +83,6 @@ db.sqlite3
 
 .idea/
 
-media/
 
 __pycache__/
 
@@ -91,7 +90,6 @@ __pycache__/
 
 Dockerfile
 
-nginx.conf
 
 
 
