@@ -83,6 +83,8 @@ db.sqlite3
 
 .idea/
 
+media/
+
 __pycache__/
 
 /db_backup.sqlite3
