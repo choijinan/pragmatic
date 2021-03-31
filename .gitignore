@@ -88,7 +88,6 @@ __pycache__/
 
 /db_backup.sqlite3
 
-Dockerfile
 
 aws_pragmatic_key.pem
 
