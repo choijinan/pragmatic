@@ -90,6 +90,9 @@ __pycache__/
 
 Dockerfile
 
+aws_pragmatic_key.pem
+
+git-receive-pack
 
 
 
